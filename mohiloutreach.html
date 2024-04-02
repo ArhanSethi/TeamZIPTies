@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <style>
+    @property --num {
+      syntax: "<integer>";
+      initial-value: 0;
+      inherits: false;
+    }
+
+    .number-container {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      /* Adjust the gap between boxes as needed */
+    }
+
+    .number-box {
+      font-family: Arial, sans-serif;
+      font-size: 40px;
+      font-weight: bold;
+      padding: 10px 20px;
+      color: #fff;
+      border-radius: 5px;
+      counter-reset: num var(--num);
+      animation-duration: 2s;
+      animation-timing-function: ease;
+      animation-fill-mode: forwards;
+    }
+
+    .number-box:before {
+      content: counter(num);
+    }
+
+    .number-box span {
+      font-size: 16px;
+      /* Adjust the font size as needed */
+      display: block;
+      margin-top: 5px;
+    }
+
+    .animate-number-1 {
+      --num: 2900;
+      animation-name: animate-number-1;
+    }
+
+    @keyframes animate-number-1 {
+      from {
+        --num: 0;
+      }
+
+      to {
+        --num: 2900;
+      }
+    }
+
+    .animate-number-2 {
+      --num: 119;
+      animation-name: animate-number-2;
+    }
+
+    @keyframes animate-number-2 {
+      from {
+        --num: 0;
+      }
+
+      to {
+        --num: 119;
+      }
+    }
+
+    .animate-number-3 {
+      --num: 29;
+      animation-name: animate-number-3;
+    }
+
+    @keyframes animate-number-3 {
+      from {
+        --num: 0;
+      }
+
+      to {
+        --num: 29;
+      }
+    }
+
+    .about-us {
+      display: flex;
+      align-items: center;
+    }
+
+    .about-text {
+      flex: 1;
+    }
+
+    .about-image {
+      flex: 1;
+      text-align: right;
+    }
+
+    .about-image img {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+
+<body style="overflow-x: hidden;">
+  <header style="position: sticky; z-index:1000; top: 0">
+    <nav style="margin-right:120px;">
+      <div class="logo">
+        <a href="#">
+          <img src="teamlogolit.svg" alt="Z.I.P Ties">
+        </a>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="OurTeam.html">Our Team</a></li>
+        <li><a href="Robot.html">Robots</a></li>
+        <li><a href="mohiloutreach.html">Outreach</a></li>
+        <li><a href="Contact.html">Contact Us</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropbtn">More...</a>
+          <div class="dropdown-content">
+            <a href="Mentors.html">Our Mentors</a>
+            <a href="Photos.html">Pictures</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <div class="container">
+    <img src="outreachpi.png" alt="Snow" style="width:100%; filter: blur(1px); -webkit-filter: blur(1px);">
+    <div class="centered" style="font-size: 128px">Outreach</div>
+  </div>
+  <h1 style="font-size: 50px;">Our Outreach at a Glance</h1>
+  <div class="number-container">
+    <div class="number-box animate-number-1" style="background-color: #f15922;"><span style="font-weight: normal;">Just
+        this season, we’ve spent 2,900 Hours on Outreach.</span></div>
+    <div class="number-box animate-number-2" style="background-color: #f15922;"><span style="font-weight: normal;">We’ve
+        assisted or mentored 119 FIRST teams this year so far.</span></div>
+    <div class="number-box animate-number-3" style="background-color: #f15922;"><span style="font-weight: normal;">We
+        assist FIRST teams across 29 Countries and 26 US States.</span></div>
+  </div>
+  <style>
+    .about-zipcamp {
+      display: flex;
+      align-items: center;
+    }
+
+    .aboutzipcamp-text {
+      flex: 1;
+    }
+
+    .aboutzipcamp-image {
+      flex: 1;
+      text-align: right;
+    }
+
+    .aboutfirst-image img {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+  <h1 style="margin-top: 40px; font-size: 50px;">Outreach Initiatives</h1>
+  <div class="about-zipcamp" style="margin-bottom: 40px;">
+    <div class="aboutzipcamp-image">
+      <img style="width: 90%; height:50%; margin-top:20px;margin-left:20px; margin-bottom:20px;" src="zipcamppic1.png"
+        alt="About Us Image">
+    </div>
+    <div class="aboutzipcamp-text" style="margin-left: 40px; margin-right: 20px;">
+      <h2 style="font-size: 32px; text-align: left;">Z.I.P Camp</h2>
+      <p style="text-align: left;margin-right: 40px;">Z.I.P camp is a one-week summer camp where we teach 9-12-year-olds
+        about the basic
+        FIRST Lego League challenge. Our programmers spent 1-2 hours each day teaching
+        Python programming basics such as variables, if statements, and while loops. We found
+        this important to teach as Python is the stepping stone in the programming aspect of
+        each first program. We were able to teach students about the benefits
+        involved in the FIRST program, this experience also allowed our younger team members
+        to develop into leaders of tomorrow.
+      </p>
+    </div>
+  </div>
+  <style>
+    .about-talks {
+      display: flex;
+      align-items: center;
+    }
+
+    .abouttalks-text {
+      flex: 1;
+    }
+
+    .abouttalks-image {
+      flex: 1;
+      text-align: right;
+    }
+
+    .abouttalks-image img {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+
+  <div class="about-talks" style="padding-bottom: 60px;">
+    <div class="abouttalks-text" style="margin-left: 40px; margin-right: 20px;">
+      <h2 style="font-size: 32px; text-align: left;">Z.I.P Talks</h2>
+      <p style="text-align: left">For the past 4 years, our team has hosted a live-stream webinar series called Z.I.P
+        Talks on YouTube. Z.I.P
+        Talks is a one-on-one interactive and engaging platform where we discuss various aspects of the FIRST
+        Tech Challenge. Each webinar has a different topic and primarily has team members conversing with a guest
+        speaker with expertise in the field. We plan to continue this by having Z.I.P Talks with more FIRST Officials to
+        cover differing
+        topics and motivate more teams!
+      </p>
+    </div>
+    <div class="abouttalks-image">
+      <img style="width: 90%; height:50%; margin-top:20px;margin-left:20px; margin-bottom:20px; margin-right:40px;"
+        src="fosterziptalks.png" alt="About Us Image">
+    </div>
+  </div>
+
+  <footer style="overflow-x: hidden; position: fixed;" class="footer">
+    <div class="footer-logo">
+      <a href="admin.html" class="logo-link">
+        <img style="max-height: 30px;" src="teamlogolit.svg">
+      </a>
+    </div>
+    <p style="margin-right: 20px; color: black;">© 2024 Z.I.P Ties</p>
+  </footer>
+</body>
+
+</html>

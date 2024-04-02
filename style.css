@@ -1,0 +1,286 @@
+header {
+  background-color: #F25922;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+}
+
+teampic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo img {
+  height: 50px;
+}
+
+.nav-menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav-menu li {
+  margin-left: 20px;
+  position: relative;
+}
+
+.nav-menu a {
+  color: #fff;
+  text-decoration: none;
+  padding: 5px 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-menu a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  opacity: 0;
+  transform: translate3d(-100%, 0, 0);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.nav-menu a:hover::after,
+.nav-menu a:focus::after {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #000;
+  color: #fff;
+}
+
+.team-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 20px;
+  justify-items: center;
+  margin: 20px;
+}
+
+.team-member {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  max-width: 300px;
+  position: relative;
+}
+
+.team-member img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+.team-member h3 {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.team-member p {
+  margin-bottom: 0;
+}
+
+.team-member-info {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #000;
+  padding: 10px;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+  /* Added transition property */
+  transform: translateY(100%);
+  /* Moved the element below initially */
+  opacity: 0;
+  /* Set initial opacity to 0 */
+}
+
+.team-member:hover .team-member-info {
+  display: block;
+  transform: translateY(0);
+  /* Moved the element to its original position on hover */
+  opacity: 1;
+  /* Set opacity to 1 on hover */
+}
+
+.team-intro {
+  position: relative;
+  width: 100%;
+}
+
+.team-intro-text {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  margin: 0 auto 20px;
+  text-align: center;
+}
+
+.team-intro img {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+/* Dropdown Button */
+.dropbtn {
+  text-decoration: none;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f15922;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  top: 100%;
+  left: 0;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: white;
+  padding: 10px 10px;
+  text-decoration: none;
+  display: block;
+}
+
+
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Container holding the image and the text */
+.container {
+  position: relative;
+  text-align: center;
+  color: #FFF;
+  display: flex;
+}
+
+/* Bottom left text */
+.bottom-left {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+}
+
+/* Top left text */
+.top-left {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+}
+
+/* Top right text */
+.top-right {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+}
+
+/* Bottom right text */
+.bottom-right {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+}
+
+/* Centered text */
+.centered {
+  position: absolute;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.centered1 {
+  position: absolute;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  top: 50%;
+  left: 5%;
+  /* Adjust this value to change the horizontal position */
+  transform: translateY(-50%);
+}
+
+.footer {
+  background-color: white;
+  color: #707070;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  align-items: center;
+}
+
+.centerstage {
+  display: flex;
+  flex-direction: column;
+  /* Change to column layout */
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+  padding: 20px;
+}
+
+.contentcontent {
+  text-align: center;
+  /* Center align the text */
+  margin-bottom: 20px;
+  /* Add some spacing between text and image */
+}
+
+.image-centerstage {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.image-centerstage img {
+  max-width: 100%;
+  height: auto;
+}

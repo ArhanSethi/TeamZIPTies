@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Members</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <script src="script.js"></script>
+  <header style="position: sticky; z-index:1000; top: 0">
+    <nav style="margin-right:120px;">
+      <div class="logo">
+        <a href="#">
+          <img src="teamlogolit.svg" alt="Z.I.P Ties">
+        </a>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="OurTeam.html">Our Team</a></li>
+        <li><a href="Robot.html">Robots</a></li>
+        <li><a href="mohiloutreach.html">Outreach</a></li>
+        <li><a href="Contact.html">Contact Us</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropbtn">More...</a>
+          <div class="dropdown-content">
+            <a href="Mentors.html">Our Mentors</a>
+            <a href="Photos.html">Pictures</a>
+          </div>
+        </li>
+      </ul>
+
+    </nav>
+  </header>
+  <div class="team-intro" style="font-size: 64px">
+    <img src="team-intro-image.png" alt="Team Introduction Image">
+    <div class="team-intro-text">
+      <h1 style="
+    padding-top: 200px;
+    margin-top: 0px;
+  ">Our Team</h1>
+    </div>
+  </div>
+  <h1 style="
+        margin-top: 300px;
+        margin-bottom: 0px;
+    ">Team Members</h1>
+  <div class="team-container" style="margin-top:20px">
+    <div class="team-member">
+      <img src="placeholder1.png" alt="Team Member">
+      <h3>Sparky</h3>
+      <p>Team Dog/Mascot</p>
+      <div class="team-member-info">doggo!</div>
+    </div>
+    <div class="team-member">
+      <img src="placeholder2.png" alt="Team Member">
+      <h3>Arnav Gaddamanugu</h3>
+      <p>Hardware and CAD Lead</p>
+    </div>
+    <div class="team-member">
+      <img src="placeholder3.png" alt="Team Member">
+      <h3>Anoop Purohitam</h3>
+      <p>Co-Captain and Robot Lead</p>
+      <div class="team-member-info">anoop is awesome!</div>
+    </div>
+    <div class="team-member">
+      <img src="placeholder4.png" alt="Team Member">
+      <h3>Navneeth Suresh</h3>
+      <p>Hardware and CAD</p>
+    </div>
+    <div class="team-member">
+      <img src="placeholder5.png" alt="Team Member">
+      <h3>Aneesh Gupta</h3>
+      <p>Hardware & CAD Rookie</p>
+    </div>
+    <div class="team-member">
+      <img src="placeholder6.png" alt="Team Member">
+      <h3>Pranesh G</h3>
+      <p>Hardware & CAD Rookie</p>
+    </div>
+    <div class="team-member">
+      <img src="placeholder7.png" alt="Team Member">
+      <h3>Shreya Suresh</h3>
+      <p>Programming</p>
+    </div>
+    <div class="team-member">
+      <a href="arhan.html" class="team-member-link">
+        <img src="placeholder8.png" alt="Team Member" class="team-member-img">
+      </a>
+      <h3>Arhan Sethi</h3>
+      <p>Programming Rookie</p>
+      <div class="team-member-info">arhan.html...</div>
+    </div>
+
+    <script>
+      const teamMembers = document.querySelectorAll(".team-member");
+
+      teamMembers.forEach(function (teamMember) {
+        const img = teamMember.querySelector(".team-member-img");
+        const link = teamMember.querySelector(".team-member-link");
+
+        link.addEventListener("mouseenter", function () {
+          img.style.cursor = "pointer";
+        });
+
+        link.addEventListener("mouseleave", function () {
+          img.style.cursor = "default";
+        });
+
+        img.addEventListener("click", function (event) {
+          event.preventDefault();
+          const imgLink = this.parentNode.href;
+          window.location.href = imgLink;
+        });
+      });
+    </script>
+
+    <style>
+      .team-member-img {
+        cursor: default;
+      }
+    </style>
+    <div class="team-member">
+      <img src="placeholder9.png" alt="Team Member">
+      <h3>Krish Bajaj</h3>
+      <p>Programming Rookie</p>
+    </div>
+    <div class="team-member">
+      <img src="placeholder10.png" alt="Team Member">
+      <h3>Mohil Kapadia</h3>
+      <p>Co-Captain and Outreach Lead</p>
+    </div>
+    <div class="team-member">
+      <img src="placeholder11.png" alt="Team Member">
+      <h3>Ankitha Vustepalli</h3>
+      <p>Business Lead</p>
+    </div>
+    <div class="team-member">
+      <img src="placeholder12.png" alt="Team Member">
+      <h3>Srishti Sharma</h3>
+      <p>Business and Outreach Rookie</p>
+    </div>
+    <div class="team-member">
+      <img src="placeholder13.png" alt="Team Member">
+      <h3>Prithvi N</h3>
+      <p>Business and Outreach Rookie</p>
+    </div>
+  </div>
+  <script src="script.js"></script>
+  <footer style="overflow-x: hidden;" class="footer">
+    <div class="footer-logo">
+      <a href="admin.html" class="logo-link">
+        <img style="max-height: 30px;" src="teamlogolit.svg">
+      </a>
+    </div>
+    <p style="
+        margin-right: 20px;
+        color: black;
+    ">© 2024 Z.I.P Ties</p>
+  </footer>
+</body>
+
+</html>
