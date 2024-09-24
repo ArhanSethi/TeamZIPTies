@@ -1,21 +1,203 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>replit</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
-</head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title style="font-: bold;">Z.I.P Ties</title>
+  <style>
+    body {
+      font-family:'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: #f15922;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px 15px;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      margin-left: 10px;
+      
+    }
+    .logo img {
+      max-height: 40px;
+    }
+    .nav-menu {
+      list-style-type: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-menu li {
+      margin-left: 20px;
+    }
+    .nav-menu a {
+      text-decoration: none;
+      color: #fff;
+      margin-right: 30px;
+      
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f15922;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .container {
+      position: relative;
+      text-align: center;
+      color: white;
+    }
+    .container img {
+      width: 100%;
+      filter: blur(1px);
+      -webkit-filter: blur(1px);
+    }
+    .centered {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 8vw;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    .about-us, .about-first {
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    }
+    .about-text, .aboutfirst-text {
+      order: 1;
+    }
+    .about-image, .aboutfirst-image {
+      order: 2;
+      margin-top: 20px;
+    }
+    .about-image img, .aboutfirst-image img {
+      max-width: 100%;
+      height: auto;
+    }
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #f0f0f0;
+    }
+    @media (min-width: 768px) {
+      .about-us, .about-first {
+        flex-direction: row;
+        align-items: center;
+      }
+      .about-text, .aboutfirst-text, .about-image, .aboutfirst-image {
+        flex: 1;
+      }
+      .about-image, .aboutfirst-image {
+        order: 0;
+      }
+    }
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      z-index: 1001;
+    }
 
-<body style="overflow-x: hidden;">
-  <script src="script.js"></script>
-  <header style="position: sticky; z-index:1000; top: 0">
-    <nav style="margin-right:120px;">
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      margin: 5px 0;
+      transition: all 0.3s ease;
+    }
+
+    @media (max-width: 767px) {
+      .nav-menu {
+        flex-direction: column;
+        position: fixed;
+        top: 60px;
+        right: -100%;
+        width: 100%;
+        height: calc(100% - 60px);
+        background-color: #f15922;
+        transition: 0.5s ease-in-out;
+        padding-top: 20px;
+      }
+      .nav-menu.active {
+        right: 0;
+      }
+      .nav-menu li {
+        margin: 20px 0;
+        opacity: 0;
+        transform: translateX(50px);
+        transition: 0.5s ease-in-out;
+      }
+      .nav-menu.active li {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      .dropdown-content {
+        position: static;
+        display: none;
+      }
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+      .hamburger {
+        display: block;
+      }
+    }
+
+    /* Hamburger Animation */
+    .hamburger.active div:nth-child(1) {
+      transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    .hamburger.active div:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active div:nth-child(3) {
+      transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    @keyframes navLinkFade {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
       <div class="logo">
         <a href="#">
           <img src="teamlogolit.svg" alt="Z.I.P Ties">
         </a>
+      </div>
+      <div class="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
       </div>
       <ul class="nav-menu">
         <li><a href="index.html">Home</a></li>
@@ -23,121 +205,67 @@
         <li><a href="Robot.html">Robots</a></li>
         <li><a href="mohiloutreach.html">Outreach</a></li>
         <li><a href="Contact.html">Contact Us</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropbtn">More...</a>
-          <div class="dropdown-content">
-            <a href="Mentors.html">Our Mentors</a>
-            <a href="Photos.html">Pictures</a>
-          </div>
-        </li>
+        <li><a href="Mentors.html">Our Mentors</a></li>
+        <li><a href="Photos.html">Pictures</a></li>
       </ul>
-
     </nav>
   </header>
+  
   <div class="container">
-    <img src="team-intro-image.png" alt="Snow" style="width:100%; filter: blur(1px);
-      -webkit-filter: blur(1px);">
-    <div class="centered" style="font-size: 128px">Team Z.I.P Ties</div>
+    <img src="team-intro-image.png" alt="Team Intro">
+    <div style="font-weight: bold;" class="centered">Team Z.I.P Ties</div>
   </div>
-  <style>
-    .about-us {
-      display: flex;
-      align-items: center;
-    }
-
-    .about-text {
-      flex: 1;
-    }
-
-    .about-image {
-      flex: 1;
-      text-align: right;
-    }
-
-    .about-image img {
-      max-width: 100%;
-      /* Ensure the image does not exceed its container */
-      height: auto;
-      /* Maintain aspect ratio */
-    }
-  </style>
-
-  <div class="about-us" style="background-color: #151b83;">
-    <div class="about-text" style="
-      margin-left: 40px;
-      margin-right: 20px;
-    ">
-      <h2 style="font-size: 32px; text-align: left;">About Us</h2>
-      <p style="text-align: left">Our team consists of highly energetic and curious high schoolers and middle
-        schoolers
-        that are excited to be in
-        their fifth season of FIRST Tech Challenge. We meet in a patio three times a week. Our work strategy is to
-        divide and conquer.
-        We like to debate and list pros and cons while we vote for the best ideas.</p>
-      <p style="text-align: left">Even though each of us are different and have various opinions, we all are bonded
-        together and work together
-        because of one common interest: “FIRST Tech Challenge”.</p>
-    </div>
+  
+  <div class="about-us" style="background-color: #151b83; color: white;">
     <div class="about-image">
-      <img style="height:90%; margin-top:20px; margin-right: 20px; margin-bottom: 20px;" src="flyingteampic.png"
-        alt="About Us Image">
+      <img src="flyingteampic.png" alt="About Us Image">
     </div>
+    <div class="about-text">
+      <h2 style="margin-left: 20px; flex: 1;">About Us</h2>
+      <p style="margin-left: 20px;">Our team consists of highly energetic and curious high schoolers and middle schoolers that are excited to be in their fifth season of FIRST Tech Challenge. We meet in a patio three times a week. Our work strategy is to divide and conquer. We like to debate and list pros and cons while we vote for the best ideas.</p>
+      <p style="margin-left: 20px;">Even though each of us are different and have various opinions, we all are bonded together and work together because of one common interest: "FIRST Tech Challenge".</p>
+    </div>
+    
   </div>
 
-  <style>
-    .about-first {
-      display: flex;
-      align-items: center;
-    }
-
-    .aboutfirst-text {
-      flex: 1;
-    }
-
-    .aboutfirst-image {
-      flex: 1;
-      text-align: right;
-    }
-
-    .aboutfirst-image img {
-      max-width: 100%;
-      height: auto;
-    }
-  </style>
-
-  <div class="about-first" style="background-color: #f15922;">
+  <div class="about-first" style="background-color: #f15922; color: white;">
     <div class="aboutfirst-image">
-      <img style="width: 100%; height:50%; margin-top:20px;margin-left:20px; margin-bottom:20px;" src="great!!!!.png"
-        alt="About Us Image">
+      <img src="great!!!!.png" alt="About FIRST Image">
     </div>
-    <div class="aboutfirst-text" style="
-      margin-left: 40px;
-      margin-right: 20px;
-    ">
-      <h2 style="font-size: 32px; text-align: left;">About FIRST</h2>
-      <p style="text-align: left">FTC teams are comprised of up to 15 middle and high school kids. Although many
-        people
-        might think it is just about building robots, teams also engage in several ways to give back to and spread the
-        FIRST community. FTC centers around giving back to the community using Coopertition and Gracious
-        Professionalism.
-
-      </p>
+    <div class="aboutfirst-text">
+      <h2>About FIRST</h2>
+      <p>FTC teams are comprised of up to 15 middle and high school kids. Although many people might think it is just about building robots, teams also engage in several ways to give back to and spread the FIRST community. FTC centers around giving back to the community using Coopertition and Gracious Professionalism.</p>
     </div>
-
   </div>
-  <footer style="overflow-x: hidden;" class="footer">
+  
+  <footer>
     <div class="footer-logo">
       <a href="admin.html" class="logo-link">
-        <img style="max-height: 30px;" src="teamlogolit.svg">
+        <img style="max-height: 30px;" src="teamlogolit.svg" alt="Z.I.P Ties Logo">
       </a>
     </div>
-    <p style="
-        margin-right: 20px;
-        color: black;
-    ">© 2024 Z.I.P Ties</p>
+    <p style="color: black;">© 2024 Z.I.P Ties</p>
   </footer>
 
+  <script>
+    document.querySelector('.nav-menu').classList.add('active');
+
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-menu li');
+
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      hamburger.classList.toggle('active');
+      
+      navLinks.forEach((link, index) => {
+        if (link.style.animation) {
+          link.style.animation = '';
+        } else {
+          link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+        }
+      });
+    });
+  </script>
 </body>
-
-
 </html>
