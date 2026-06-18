@@ -1,284 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Team Members</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-  <script src="script.js"></script>
-  <style>
-    body {
-  font-family: 'Montserrat', sans-serif;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-}
-
-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background-color: #f15922;
-}
-
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 5px 15px;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  margin-left: 10px;
-}
-
-.logo img {
-  max-height: 40px;
-}
-
-.nav-menu {
-  list-style-type: none;
-  display: flex;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-menu li {
-  margin-left: 20px;
-}
-
-.nav-menu a {
-  text-decoration: none;
-  color: #fff;
-  margin-right: 30px;
-}
-
-.hamburger {
-  display: none;
-  cursor: pointer;
-  z-index: 1001;
-}
-
-.hamburger div {
-  width: 25px;
-  height: 3px;
-  background-color: white;
-  margin: 5px 0;
-  transition: all 0.3s ease;
-}
-
-@media (max-width: 767px) {
-  .nav-menu {
-    flex-direction: column;
-    position: fixed;
-    top: 60px;
-    right: -100%;
-    width: 100%;
-    height: calc(100% - 60px);
-    background-color: #f15922;
-    transition: 0.5s ease-in-out;
-    padding-top: 20px;
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Our Team</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+<style>
+  body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    background-color: #fff;
+    color: #333;
+    overflow-x: hidden;
   }
-  .nav-menu.active {
-    right: 0;
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background: linear-gradient(90deg, #f15922, #ff8c00);
+  }
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+  }
+  .logo img {
+    height: 50px;
+  }
+  .nav-menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
   }
   .nav-menu li {
-    margin: 20px 0;
-    opacity: 0;
-    transform: translateX(50px);
-    transition: 0.5s ease-in-out;
+    margin-left: 25px;
   }
-  .nav-menu.active li {
-    opacity: 1;
-    transform: translateX(0);
+  .nav-menu a {
+    color: #fff;
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background 0.3s;
   }
-  .hamburger {
-    display: block;
+  .nav-menu a:hover {
+    background-color: rgba(255,255,255,0.2);
   }
-}
+  @media(max-width: 768px) {
+    body {
+      font-size: 1rem;
+    }
+  }
 
-/* Hamburger Animation */
-.hamburger.active div:nth-child(1) {
-  transform: rotate(-45deg) translate(-5px, 6px);
-}
-.hamburger.active div:nth-child(2) {
-  opacity: 0;
-}
-.hamburger.active div:nth-child(3) {
-  transform: rotate(45deg) translate(-5px, -6px);
-}
-
-@keyframes navLinkFade {
-  from {
-    opacity: 0;
-    transform: translateX(50px);
+  /* Team Section Styles */
+  .team-section {
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: auto;
   }
-  to {
-    opacity: 1;
-    transform: translateX(0);
+  h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
   }
-}
-  </style>
-  <header>
-    <nav>
-      <div class="logo">
-        <a href="#">
-          <img src="teamlogolit.svg" alt="Z.I.P Ties">
-        </a>
-      </div>
-      <div class="hamburger">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <ul class="nav-menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="OurTeam.html">Our Team</a></li>
-        <li><a href="Robot.html">Robots</a></li>
-        <li><a href="mohiloutreach.html">Outreach</a></li>
-        <li><a href="Contact.html">Contact Us</a></li>
-        <li><a href="Mentors.html">Our Mentors</a></li>
-        <li><a href="Photos.html">Pictures</a></li>
-      </ul>
-    </nav>
-  </header>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-  const hamburger = document.querySelector('.hamburger');
-  const navMenu = document.querySelector('.nav-menu');
-  const navLinks = document.querySelectorAll('.nav-menu li');
-
-  hamburger.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    hamburger.classList.toggle('active');
-    
-    navLinks.forEach((link, index) => {
-      if (link.style.animation) {
-        link.style.animation = '';
-      } else {
-        link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
-      }
-    });
-  });
-});
-  </script>
-  <div class="team-intro" style="position: relative; width: 100%; height: 400px; overflow: hidden;">
-    <img src="team-intro-image.png" alt="Team Introduction Image" style="width: 100%; height: 100%; object-fit: cover;">
-    <div class="team-intro-text" style="
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      color: white;
-      font-size: 64px;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    ">
-      <h1 style="margin: 0;">Our Team</h1>
+  .team-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  .member {
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 200px;
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  }
+  .member img {
+    width: 100%;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    transition: transform 0.3s;
+  }
+  .member h3 {
+    margin: 10px 0 5px 0;
+  }
+  .member p {
+    font-size: 0.9rem;
+    color: #555;
+  }
+</style>
+</head>
+<body>
+<header>
+  <nav>
+    <div class="logo">
+      <a href="#"><img src="teamlogolit.svg" alt="Z.I.P Ties" /></a>
     </div>
-  </div>
+    <ul class="nav-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="OurTeam.html">Our Team</a></li>
+      <li><a href="Robot.html">Robots</a></li>
+      <li><a href="mohiloutreach.html">Outreach</a></li>
+      <li><a href="Contact.html">Contact Us</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropbtn">More...</a>
+        <div class="dropdown-content">
+          <a href="Mentors.html">Our Mentors</a>
+          <a href="Photos.html">Pictures</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+</header>
 
-  <h1 style="text-align: center; margin-top: 40px; margin-bottom: 20px;">Team Members</h1>
-
-  <div class="team-container" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 0 20px;">
-    <div class="team-member">
-      <img src="placeholder1.png" alt="Team Member">
+<section class="team-section">
+  <h1>Meet Our Team</h1>
+  <div class="team-grid">
+    <div class="member">
+      <img src="placeholder1.png" alt="Sparky">
       <h3>Sparky</h3>
       <p>Team Dog/Mascot</p>
-      <div class="team-member-info">doggo!</div>
     </div>
-    <div class="team-member">
-      <img src="placeholder2.png" alt="Team Member">
+    <div class="member">
+      <img src="placeholder2.png" alt="Arnav Gaddamanugu">
       <h3>Arnav Gaddamanugu</h3>
-      <p>Hardware and CAD Lead</p>
+      <p>Hardware & CAD Lead</p>
     </div>
-    <div class="team-member">
-      <img src="placeholder5.png" alt="Team Member">
+    <div class="member">
+      <img src="placeholder5.png" alt="Aneesh Gupta">
       <h3>Aneesh Gupta</h3>
       <p>Hardware & CAD Rookie</p>
     </div>
-    <div class="team-member">
-      <img src="placeholder6.png" alt="Team Member">
+    <div class="member">
+      <img src="placeholder6.png" alt="Pranesh G">
       <h3>Pranesh G</h3>
       <p>Hardware & CAD Rookie</p>
     </div>
-    <div class="team-member">
-      <img src="placeholder7.png" alt="Team Member">
+    <div class="member">
+      <img src="placeholder7.png" alt="Shreya Suresh">
       <h3>Shreya Suresh</h3>
       <p>Programming</p>
     </div>
-    <div class="team-member">
-      <a href="arhan.html" class="team-member-link">
-        <img src="placeholder8.png" alt="Team Member" class="team-member-img">
+    <div class="member">
+      <a href="arhan.html" class="member-link">
+        <img src="placeholder8.png" alt="Arhan Sethi" class="member-img">
       </a>
       <h3>Arhan Sethi</h3>
       <p>Programming Rookie</p>
-      <div class="team-member-info">arhan.html...</div>
     </div>
-
-    <script>
-      const teamMembers = document.querySelectorAll(".team-member");
-
-      teamMembers.forEach(function (teamMember) {
-        const img = teamMember.querySelector(".team-member-img");
-        const link = teamMember.querySelector(".team-member-link");
-
-        link.addEventListener("mouseenter", function () {
-          img.style.cursor = "pointer";
-        });
-
-        link.addEventListener("mouseleave", function () {
-          img.style.cursor = "default";
-        });
-
-        img.addEventListener("click", function (event) {
-          event.preventDefault();
-          const imgLink = this.parentNode.href;
-          window.location.href = imgLink;
-        });
-      });
-    </script>
-
-    <style>
-      .team-member-img {
-        cursor: default;
-      }
-    </style>
-    <div class="team-member">
-      <img src="placeholder9.png" alt="Team Member">
+    <div class="member">
+      <img src="placeholder9.png" alt="Krish Bajaj">
       <h3>Krish Bajaj</h3>
       <p>Programming Rookie</p>
     </div>
-    <div class="team-member">
-      <img src="placeholder12.png" alt="Team Member">
+    <div class="member">
+      <img src="placeholder12.png" alt="Srishti Sharma">
       <h3>Srishti Sharma</h3>
-      <p>Business and Outreach Rookie</p>
+      <p>Business & Outreach Rookie</p>
     </div>
-    <div class="team-member">
-      <img src="placeholder13.png" alt="Team Member">
+    <div class="member">
+      <img src="placeholder13.png" alt="Prithvi N">
       <h3>Prithvi N</h3>
-      <p>Business and Outreach Rookie</p>
+      <p>Business & Outreach Rookie</p>
     </div>
   </div>
-  <script src="script.js"></script>
-  <footer style="overflow-x: hidden;" class="footer">
-    <div class="footer-logo">
-      <a href="admin.html" class="logo-link">
-        <img style="max-height: 30px;" src="teamlogolit.svg">
-      </a>
-    </div>
-    <p style="
-        margin-right: 20px;
-        color: black;
-    ">© 2024 Z.I.P Ties</p>
-  </footer>
+</section>
+<footer style="margin-top:40px; padding:20px; background:#222; text-align:center; color:#fff;">
+  <a href="admin.html" style="display:inline-block; margin-bottom:10px;"><img src="teamlogolit.svg" style="max-height:30px;"></a>
+  <p>&copy; 2024 Z.I.P Ties</p>
+</footer>
 </body>
-
 </html>
