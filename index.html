@@ -1,187 +1,300 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title style="font-: bold;">Z.I.P Ties</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Z.I.P Ties</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
   <style>
     body {
-      font-family:'Montserrat', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       margin: 0;
       padding: 0;
       overflow-x: hidden;
+      line-height: 1.6;
     }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
     header {
       position: sticky;
       top: 0;
       z-index: 1000;
       background-color: #f15922;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
+
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 5px 15px;
-      font-family: 'Montserrat', sans-serif;
+      padding: 10px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
-    .logo {
-      display: flex;
-      align-items: center;
-      margin-left: 10px;
-      
-    }
+
     .logo img {
-      max-height: 40px;
+      max-height: 50px;
     }
+
     .nav-menu {
-      list-style-type: none;
+      list-style: none;
       display: flex;
       margin: 0;
       padding: 0;
     }
+
     .nav-menu li {
       margin-left: 20px;
+      position: relative;
     }
+
     .nav-menu a {
-      text-decoration: none;
       color: #fff;
-      margin-right: 30px;
-      
+      font-weight: 600;
+      padding: 8px 12px;
+      border-radius: 4px;
+      transition: background 0.3s;
     }
+
+    .nav-menu a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
     .dropdown-content {
       display: none;
       position: absolute;
+      top: 100%;
+      left: 0;
       background-color: #f15922;
       min-width: 160px;
-      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-      z-index: 1;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      border-radius: 4px;
+      overflow: hidden;
     }
+
+    .dropdown-content a {
+      display: block;
+      padding: 10px 15px;
+      color: #fff;
+      font-weight: 500;
+    }
+
     .dropdown:hover .dropdown-content {
       display: block;
     }
-    .container {
-      position: relative;
-      text-align: center;
-      color: white;
-    }
-    .container img {
-      width: 100%;
-      filter: blur(1px);
-      -webkit-filter: blur(1px);
-    }
-    .centered {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 8vw;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    }
-    .about-us, .about-first {
-      display: flex;
-      flex-direction: column;
-      padding: 20px;
-    }
-    .about-text, .aboutfirst-text {
-      order: 1;
-    }
-    .about-image, .aboutfirst-image {
-      order: 2;
-      margin-top: 20px;
-    }
-    .about-image img, .aboutfirst-image img {
-      max-width: 100%;
-      height: auto;
-    }
-    footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-      background-color: #f0f0f0;
-    }
-    @media (min-width: 768px) {
-      .about-us, .about-first {
-        flex-direction: row;
-        align-items: center;
-      }
-      .about-text, .aboutfirst-text, .about-image, .aboutfirst-image {
-        flex: 1;
-      }
-      .about-image, .aboutfirst-image {
-        order: 0;
-      }
-    }
+
     .hamburger {
       display: none;
+      flex-direction: column;
       cursor: pointer;
       z-index: 1001;
     }
 
     .hamburger div {
-      width: 25px;
+      width: 30px;
       height: 3px;
-      background-color: white;
-      margin: 5px 0;
-      transition: all 0.3s ease;
+      background-color: #fff;
+      margin: 4px 0;
+      transition: 0.3s;
     }
 
-    @media (max-width: 767px) {
+    @media (max-width: 768px) {
       .nav-menu {
-        flex-direction: column;
         position: fixed;
         top: 60px;
         right: -100%;
         width: 100%;
         height: calc(100% - 60px);
         background-color: #f15922;
-        transition: 0.5s ease-in-out;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
         padding-top: 20px;
+        transition: right 0.3s ease;
       }
+
       .nav-menu.active {
         right: 0;
       }
+
       .nav-menu li {
-        margin: 20px 0;
         opacity: 0;
+        margin: 15px 0;
         transform: translateX(50px);
-        transition: 0.5s ease-in-out;
+        transition: all 0.3s ease;
       }
+
       .nav-menu.active li {
         opacity: 1;
         transform: translateX(0);
       }
-      .dropdown-content {
+
+      .dropdown {
         position: static;
-        display: none;
       }
+
       .dropdown:hover .dropdown-content {
         display: block;
       }
+
       .hamburger {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
       }
-    }
 
-    /* Hamburger Animation */
-    .hamburger.active div:nth-child(1) {
-      transform: rotate(-45deg) translate(-5px, 6px);
-    }
-    .hamburger.active div:nth-child(2) {
-      opacity: 0;
-    }
-    .hamburger.active div:nth-child(3) {
-      transform: rotate(45deg) translate(-5px, -6px);
-    }
+      .hamburger.active div:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+      }
 
-    @keyframes navLinkFade {
-      from {
+      .hamburger.active div:nth-child(2) {
         opacity: 0;
-        transform: translateX(50px);
       }
-      to {
+
+      .hamburger.active div:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+      }
+    }
+
+    .container {
+      position: relative;
+      text-align: center;
+      color: white;
+    }
+
+    .container img,
+    .container video {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: blur(1px);
+      -webkit-filter: blur(1px);
+    }
+
+    .centered {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 8vw;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .about-us,
+    .about-first {
+      display: flex;
+      flex-direction: column;
+      padding: 40px 20px;
+      align-items: center;
+      background-color: #151b83;
+      color: #fff;
+    }
+
+    .about-first {
+      background-color: #f15922;
+    }
+
+    .about-image,
+    .aboutfirst-image {
+      max-width: 50%;
+      margin: 20px;
+    }
+
+    .about-image img,
+    .aboutfirst-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .about-text,
+    .aboutfirst-text {
+      max-width: 600px;
+      padding: 20px;
+    }
+
+    .about-text h2,
+    .aboutfirst-text h2 {
+      margin-top: 0;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      background-color: #f0f0f0;
+      flex-wrap: wrap;
+    }
+
+    .footer-logo img {
+      max-height: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-menu {
+        position: fixed;
+        top: 60px;
+        right: -100%;
+        width: 100%;
+        height: calc(100% - 60px);
+        background-color: #f15922;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+        padding-top: 20px;
+        transition: right 0.3s ease;
+      }
+
+      .nav-menu.active {
+        right: 0;
+      }
+
+      .nav-menu li {
+        opacity: 0;
+        margin: 15px 0;
+        transform: translateX(50px);
+        transition: all 0.3s ease;
+      }
+
+      .nav-menu.active li {
         opacity: 1;
         transform: translateX(0);
+      }
+
+      .dropdown {
+        position: static;
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+      .hamburger {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+      }
+
+      .hamburger.active div:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+      }
+
+      .hamburger.active div:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.active div:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
       }
     }
   </style>
@@ -190,81 +303,70 @@
   <header>
     <nav>
       <div class="logo">
-        <a href="#">
-          <img src="teamlogolit.svg" alt="Z.I.P Ties">
-        </a>
+        <a href="#"><img src="teamlogolit.svg" alt="Z.I.P Ties" /></a>
       </div>
-      <div class="hamburger">
+      <div class="hamburger" id="hamburger">
         <div></div>
         <div></div>
         <div></div>
       </div>
-      <ul class="nav-menu">
+      <ul class="nav-menu" id="nav-menu">
         <li><a href="index.html">Home</a></li>
         <li><a href="OurTeam.html">Our Team</a></li>
         <li><a href="Robot.html">Robots</a></li>
         <li><a href="mohiloutreach.html">Outreach</a></li>
         <li><a href="Contact.html">Contact Us</a></li>
-        <li><a href="Mentors.html">Our Mentors</a></li>
-        <li><a href="Photos.html">Pictures</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropbtn">More...</a>
+          <div class="dropdown-content">
+            <a href="Mentors.html">Our Mentors</a>
+            <a href="Photos.html">Pictures</a>
+          </div>
+        </li>
       </ul>
     </nav>
   </header>
-  
+
   <div class="container">
-    <img src="team-intro-image.png" alt="Team Intro">
-    <div style="font-weight: bold;" class="centered">Team Z.I.P Ties</div>
-  </div>
-  
-  <div class="about-us" style="background-color: #151b83; color: white;">
-    <div class="about-image">
-      <img src="flyingteampic.png" alt="About Us Image">
-    </div>
-    <div class="about-text">
-      <h2 style="margin-left: 20px; flex: 1;">About Us</h2>
-      <p style="margin-left: 20px;">Our team consists of highly energetic and curious high schoolers and middle schoolers that are excited to be in their fifth season of FIRST Tech Challenge. We meet in a patio three times a week. Our work strategy is to divide and conquer. We like to debate and list pros and cons while we vote for the best ideas.</p>
-      <p style="margin-left: 20px;">Even though each of us are different and have various opinions, we all are bonded together and work together because of one common interest: "FIRST Tech Challenge".</p>
-    </div>
-    
+    <img src="team-intro-image.png" alt="Team Intro" />
+    <div class="centered">Team Z.I.P Ties</div>
   </div>
 
-  <div class="about-first" style="background-color: #f15922; color: white;">
+  <section class="about-us" style="background-color:#151b83;">
+    <div class="about-image">
+      <img src="flyingteampic.png" alt="About Us Image" />
+    </div>
+    <div class="about-text">
+      <h2>About Us</h2>
+      <p>Our team consists of highly energetic and curious high schoolers and middle schoolers that are excited to be in their fifth season of FIRST Tech Challenge. We meet in a patio three times a week. Our work strategy is to divide and conquer. We like to debate and list pros and cons while we vote for the best ideas.</p>
+      <p>Even though each of us are different and have various opinions, we all are bonded together and work together because of one common interest: "FIRST Tech Challenge".</p>
+    </div>
+  </section>
+
+  <section class="about-first" style="background-color:#f15922;">
     <div class="aboutfirst-image">
-      <img src="great!!!!.png" alt="About FIRST Image">
+      <img src="great!!!!.png" alt="About FIRST Image" />
     </div>
     <div class="aboutfirst-text">
       <h2>About FIRST</h2>
       <p>FTC teams are comprised of up to 15 middle and high school kids. Although many people might think it is just about building robots, teams also engage in several ways to give back to and spread the FIRST community. FTC centers around giving back to the community using Coopertition and Gracious Professionalism.</p>
     </div>
-  </div>
-  
+  </section>
+
   <footer>
     <div class="footer-logo">
-      <a href="admin.html" class="logo-link">
-        <img style="max-height: 30px;" src="teamlogolit.svg" alt="Z.I.P Ties Logo">
-      </a>
+      <a href="admin.html"><img src="teamlogolit.svg" alt="Z.I.P Ties Logo" /></a>
     </div>
-    <p style="color: black;">© 2024 Z.I.P Ties</p>
+    <p>© 2024 Z.I.P Ties</p>
   </footer>
 
   <script>
-    document.querySelector('.nav-menu').classList.add('active');
-
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-    const navLinks = document.querySelectorAll('.nav-menu li');
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
 
     hamburger.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
       hamburger.classList.toggle('active');
-      
-      navLinks.forEach((link, index) => {
-        if (link.style.animation) {
-          link.style.animation = '';
-        } else {
-          link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
-        }
-      });
+      navMenu.classList.toggle('active');
     });
   </script>
 </body>
